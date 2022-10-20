@@ -103,5 +103,5 @@ services:
       - DE4LCkg
 
 networks:
-  p4lucat:
+  DE4LC:
     external: false

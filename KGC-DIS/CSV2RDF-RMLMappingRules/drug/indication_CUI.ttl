@@ -6,22 +6,45 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
-@prefix fno: <https://w3id.org/function/ontology#> .
-@prefix biofunmap: <http://www.BioFunMap.com/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
 
-
-
+<Annotation_indication_CUI>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID}";
+        rr:class DE4LC:Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate prov:hasGeneratedBy;
+        rr:objectMap [
+        rr:constant "http://research.tib.eu/DE4LC/entity/UMLS"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annID;
+        rr:objectMap [
+        rml:reference "ID"
+        ]
+    ].
 
 <Disorder_indication_CUI>
+    a rr:TriplesMap;
     rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-                        rml:referenceFormulation ql:CSV 
-                        ];
+                rml:referenceFormulation ql:CSV
+                ];
     rr:subjectMap [
         rr:template "http://research.tib.eu/DE4LC/entity/{name}";
         rr:class DE4LC:Disorder
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCUIAnnotation;
+        rr:objectMap [
+        rr:parentTriplesMap <Annotation_indication_CUI>;
+        ]
     ];
     rr:predicateObjectMap [
         rr:predicate DE4LC:disorderLabel;
@@ -34,158 +57,5 @@
         rr:objectMap [
         rr:template  "{Dbpedia_URL}"
         ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate owl:sameAs;
-        rr:objectMap [
-            rr:parentTriplesMap <FalconDBpedia>
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate owl:sameAs;
-        rr:objectMap [
-            rr:parentTriplesMap <FalconWikipedia>
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate DE4LC:hasCUIAnnotation;
-        rr:objectMap [
-            rr:parentTriplesMap <FalconUMLS>
-        ]
     ].
 
-<FalconDBpedia>
-    rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap <FalconDBpedia-Function> ;
-    rr:termType rr:IRI ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "https://dbpedia.org/ontology/Disease";
-        ]
-    ]. 
-
-<FalconWikipedia>
-    rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap <FalconWikipedia-Function> ;
-    rr:termType rr:IRI ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "https://www.wikidata.org/wiki/Q12136";
-        ]
-    ].
-    
-<FalconUMLS>
-    rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap <UMLSFunction> ;
-    rr:termType rr:IRI ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "http://research.tib.eu/DE4LC/vocab/Annotation";
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate prov:hasGeneratedBy;
-        rr:objectMap [
-            rr:template "http://research.tib.eu/DE4LC/entity/UMLS"
-        ]
-    ].
-
-##########################################################################################
-######################################## Functions #######################################
-##########################################################################################
-
-<FalconDBpedia-Function>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:falcon_dbpedia_function 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value;
-            rr:objectMap [ 
-                rml:reference "name" 
-            ] 
-        ];    
-    ].
-
-#####
-
-<FalconWikipedia-Function>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:falcon_wikipedia_function 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value;
-            rr:objectMap [ 
-                rml:reference "name" 
-            ] 
-        ];    
-    ].           
-
-#######
-
-<UMLSFunction>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:concat2 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value1;
-            rr:objectMap [ 
-                rr:constant "http://research.tib.eu/DE4LC/Annotation/" 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value2;
-            rr:objectMap <FalconUMLS-Function>
-        ];      
-    ].
-
-<FalconUMLS-Function>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/indication_CUI.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:falcon_UMLS_CUI_function 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value;
-            rr:objectMap [ 
-                rml:reference "name" 
-            ] 
-        ];    
-    ].

@@ -6,173 +6,22 @@
 @prefix schema: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix fnml: <http://semweb.mmlab.be/ns/fnml#> .
-@prefix fno: <https://w3id.org/function/ontology#> .
-@prefix biofunmap: <http://www.BioFunMap.com/> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
 @prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
 
-
 <Phenotype_toxicity>
+    a rr:TriplesMap;
     rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
+                rml:referenceFormulation ql:CSV
+                ];
     rr:subjectMap [
         rr:template "http://research.tib.eu/DE4LC/entity/{Toxicity}";
         rr:class DE4LC:Phenotype
     ];
     rr:predicateObjectMap [
-        rr:predicate owl:sameAs;
-        rr:objectMap [
-            rr:parentTriplesMap <FalconDBpedia>
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate owl:sameAs;
-        rr:objectMap [
-            rr:parentTriplesMap <FalconWikipedia>
-        ]
-    ];
-    rr:predicateObjectMap [
         rr:predicate DE4LC:hasCUIAnnotation;
         rr:objectMap [
-            rr:parentTriplesMap <FalconUMLS>
+        rr:template "http://research.tib.eu/DE4LC/entity/{cui1}";
         ]
-    ].  
-
-<FalconDBpedia>
-    rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap <FalconDBpedia-Function> ;
-    rr:termType rr:IRI ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "https://dbpedia.org/ontology/Disease";
-        ]
-    ]. 
-
-<FalconWikipedia>
-    rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap <FalconWikipedia-Function> ;
-    rr:termType rr:IRI ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "https://www.wikidata.org/wiki/Q274160";
-        ]
-    ].
-
-<FalconUMLS>
-    rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-                        rml:referenceFormulation ql:CSV
-                        ];
-    rr:subjectMap <UMLSFunction> ;
-    rr:termType rr:IRI ;
-
-    rr:predicateObjectMap [
-        rr:predicate rdf:type;
-        rr:objectMap [
-            rr:template "http://research.tib.eu/DE4LC/vocab/Annotation";
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate prov:hasGeneratedBy;
-        rr:objectMap [
-            rr:template "http://research.tib.eu/DE4LC/entity/UMLS"
-        ]
-    ].
-
-##########################################################################################
-######################################## Functions #######################################
-##########################################################################################
-
-<FalconDBpedia-Function>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:falcon_dbpedia_function 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value;
-            rr:objectMap [ 
-                rml:reference "Toxicity" 
-            ] 
-        ];    
-    ].
-
-#####
-
-<FalconWikipedia-Function>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:falcon_wikipedia_function 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value;
-            rr:objectMap [ 
-                rml:reference "Toxicity" 
-            ] 
-        ];    
-    ].           
-
-#######
-
-<UMLSFunction>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:concat2 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value1;
-            rr:objectMap [ 
-                rr:constant "http://research.tib.eu/DE4LC/Annotation/" 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value2;
-            rr:objectMap <FalconUMLS-Function>
-        ];      
-    ].
-
-<FalconUMLS-Function>
-    fnml:functionValue [
-        rml:logicalSource [ rml:source "/data/drug/toxicitiesAndTypes_processed.csv";
-        rml:referenceFormulation ql:CSV 
-                            ];
-        rr:predicateObjectMap [
-            rr:predicate fno:executes ;
-            rr:objectMap [ 
-                rr:constant biofunmap:falcon_UMLS_CUI_description_function 
-            ]
-        ];
-        rr:predicateObjectMap [
-            rr:predicate biofunmap:value;
-            rr:objectMap [ 
-                rml:reference "Toxicity" 
-            ] 
-        ];    
     ].
 

@@ -1,0 +1,123 @@
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<StageI_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageI.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class DE4LC:I,
+                    DE4LC:Stage;
+    ].
+
+<StageIA_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIA.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class DE4LC:IA,
+                    DE4LC:I,
+                    DE4LC:Stage;
+    ].
+
+<StageIB_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIB.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class DE4LC:IB,
+                    DE4LC:I,
+                    DE4LC:Stage;
+    ].
+
+<StageII_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageII.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class  DE4LC:II,
+                    DE4LC:Stage;
+    ].
+
+<StageIIA_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIIA.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class  DE4LC:IIA,
+                    DE4LC:II,
+                    DE4LC:Stage;
+    ].
+
+<StageIIB_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIIB.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class  DE4LC:IIB,
+                    DE4LC:II,
+                    DE4LC:Stage;
+    ].
+
+<StageIII_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIII.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class   DE4LC:III,
+                    DE4LC:Stage;
+    ].
+
+<StageIIIA_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIIIA.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class DE4LC:IIIA,
+                    DE4LC:III,
+                    DE4LC:Stage;
+    ].
+
+<StageIIIB_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIIIB.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class DE4LC:IIIB,
+                    DE4LC:III,
+                    DE4LC:Stage;
+    ].
+
+<StageIV_CT>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial_stageIV.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class DE4LC:IV,
+                    DE4LC:Stage;
+    ].

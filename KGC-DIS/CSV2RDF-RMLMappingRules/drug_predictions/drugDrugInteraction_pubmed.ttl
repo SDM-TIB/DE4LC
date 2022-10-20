@@ -1,0 +1,45 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+
+<DrugDrugPrediction_drugDrugInteraction_DE4LC_pubmed>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/drug_predictions/wp4_pubmed_drugs_drugs_interactions.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{Drug1}_interactsWith_{Drug2}";
+        rr:class DE4LC:DrugDrugPrediction
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:interactor2_Drug;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Drug2}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:interactor1_Drug;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Drug1}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate prov:hasGeneratedBy;
+        rr:objectMap [
+        rr:constant  "http://research.tib.eu/DE4LC/entity/PubMed"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:predictionMethod;
+        rr:objectMap [
+        rr:constant "Literature Predictions"
+        ]
+    ].
+

@@ -1,0 +1,107 @@
+version: "3.3"
+services:
+  sdmrdfizer_p4lucat:
+    image: sdmtib/sdmrdfizer:4.3.6
+    hostname: sdmrdfizer_p4lucat 
+    container_name: sdmrdfizer_p4lucat
+    domainname: p4lucat
+    volumes:
+      - ./data:/data
+      - ./rdf:/data/rdf-dump
+      - ./KGC-DIS/SDM-RDFizer-Configs:/data/configs
+      - ./KGC-DIS/CSV2RDF-RMLMappingRules:/data/mappings
+      - ./scripts:/data/scripts
+      - ./KGC-DIS:/data/ttl
+    networks:
+      - p4lucat
+    depends_on:
+      - p4lucatkg
+    environment:
+      - SPARQL_ENDPOINT_IP=p4lucatkg
+      - SPARQL_ENDPOINT_USER=dba
+      - SPARQL_ENDPOINT_PASSWD=dba
+      - SPARQL_ENDPOINT_PORT=1111
+      - SPARQL_ENDPOINT_GRAPH=http://research.tib.eu/p4-lucat
+      - RDF_DUMP_FOLDER_PATH=/data/rdf-dump/
+      - TTL_DUMP_FOLDER_PATH=/data/ttl/
+      - SPARQL_MAPPINGS_ENDPOINT_IP=p4lucat_mappings
+      
+
+  p4lucatkg:
+    image: kemele/virtuoso:6-stable
+    hostname: p4lucatkg
+    container_name: p4lucatkg
+    domainname: p4lucat
+    volumes:
+      - ./rdf-dump:/data
+      - ./rdf:/data/rdf-dump
+      - ./KGC-DIS:/data/ttl
+    ports:
+      - "8893:8890"
+    networks:
+      - p4lucat
+      
+  p4lucat_mappings:
+    image: kemele/virtuoso:6-stable
+    hostname: p4lucat_mappings
+    container_name: p4lucat_mappings
+    domainname: p4lucat
+    volumes:
+      - ./rdf-dump-mappings:/data
+      - ./KGC-DIS:/data/ttl
+    ports:
+      - "8894:8890"
+    networks:
+      - p4lucat
+ 
+#    p4lucat_exp_api:
+#     image: sdmtib/p4lucat_exploration:2.0
+#     hostname: p4lucat_exploration_api
+#     container_name: p4lucat9_exploration_api
+#     domainname: p4lucat
+#     ports:
+#       - "18873:5000"
+#     environment:
+#       - ENDPOINT=http://node2.research.tib.eu:8893/sparql
+#     networks:
+#       - p4lucat
+      
+  p4lucat_dereferencing:
+    image: asanchez75/pubby:v0.3.3
+    hostname: pubby
+    container_name: p4lucat_pubby
+    domainname: p4lucat
+    ports:
+        - "8181:8080"
+    networks:
+      - p4lucat
+    environment:
+      SPARQL_ENDPOINT: "https://labs.tib.eu/sdm/p4lucat_kg/sparql"
+      PROJECT_HOMEPAGE_URL: "http://research.tib.eu/p4-lucat/"
+      PROJECT_NAME: "P4LUCAT"
+      DEFAULT_RESOURCE: "http://research.tib.eu/p4-lucat/entity/C0168273"
+      DEFAULT_NAMED_GRAPH: "http://research.tib.eu/p4-lucat"
+      COMMON_URI_PREFIX: "http://research.tib.eu/p4-lucat/"
+      WEB_RESOURCE_PREFIX: ""
+      PUBBY_ROOT_URL: "https://research.tib.eu/p4-lucat/"
+    restart: always
+    tty: true
+    
+          
+  p4lucat_detrusty:
+    image: sdmtib/detrusty:0.7.2
+    hostname: detrusty
+    container_name: p4lucat_detrusty
+    domainname: p4lucat
+    volumes:
+      - ./DeTrusty/Config/:/DeTrusty/Config/
+    ports:
+      - "5001:5000"
+    networks:
+      - p4lucat
+    depends_on:
+      - p4lucatkg
+
+networks:
+  p4lucat:
+    external: false

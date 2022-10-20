@@ -1,0 +1,820 @@
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<ClinicalTrial_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/clinicaltrial.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+        rr:class DE4LC:ClinicalTrial
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasOncologicalTreatment;
+        rr:objectMap [
+        	rr:parentTriplesMap <TKI_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoOncologicalTreatment;
+        rr:objectMap [ 
+            rr:parentTriplesMap <TKI_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasOncologicalTreatment;
+        rr:objectMap [
+        	rr:parentTriplesMap <Radiotherapy_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoOncologicalTreatment;
+        rr:objectMap [ 
+            rr:parentTriplesMap <Radiotherapy_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:maxAge;
+        rr:objectMap [
+        rml:reference "MaximumAge"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:statusCT;
+        rr:objectMap [
+        rml:reference "OverallStatus"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasStage;
+        rr:objectMap [
+        	rr:parentTriplesMap <Stages_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:clinicalTrialId;
+        rr:objectMap [
+        rml:reference "NCTId"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:detailedDescription;
+        rr:objectMap [
+        rml:reference "DetailedDescription"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:minAge;
+        rr:objectMap [
+        rml:reference "MinimumAge"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasOncologicalTreatment;
+        rr:objectMap [
+        	rr:parentTriplesMap <Chemotherapy_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoOncologicalTreatment;
+        rr:objectMap [ 
+            rr:parentTriplesMap <Chemotherapy_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:designAllocation;
+        rr:objectMap [
+        rml:reference "DesignAllocation"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:clinicalTrialTitle;
+        rr:objectMap [
+        rml:reference "BriefTitle"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:primaryOutTimeFrame;
+        rr:objectMap [
+        rml:reference "PrimaryOutcomeTimeFrame"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasOncologicalTreatment;
+        rr:objectMap [
+        	rr:parentTriplesMap <Antiangiogenic_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoOncologicalTreatment;
+        rr:objectMap [ 
+            rr:parentTriplesMap <Antiangiogenic_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasOncologicalTreatment;
+        rr:objectMap [
+        	rr:parentTriplesMap <Immunotherapy_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoOncologicalTreatment;
+        rr:objectMap [ 
+            rr:parentTriplesMap <Immunotherapy_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasGender;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Gender}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasPerformanceObservation;
+        rr:objectMap [
+        	rr:parentTriplesMap <PerformanceObservation_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:briefSummary;
+        rr:objectMap [
+        rml:reference "BriefSummary"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasOncologicalTreatment;
+        rr:objectMap [
+        	rr:parentTriplesMap <Surgery_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoOncologicalTreatment;
+        rr:objectMap [ 
+            rr:parentTriplesMap <Surgery_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasBio;
+        rr:objectMap [ 
+            rr:parentTriplesMap <EGFR_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoBio;
+        rr:objectMap [ 
+            rr:parentTriplesMap <EGFR_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasBio;
+        rr:objectMap [ 
+            rr:parentTriplesMap <ALK_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoBio;
+        rr:objectMap [ 
+            rr:parentTriplesMap <ALK_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasBio;
+        rr:objectMap [ 
+            rr:parentTriplesMap <ROS_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNoBio;
+        rr:objectMap [ 
+            rr:parentTriplesMap <ROS_Negative_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "NCTId";
+            rr:parent "NCTId";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:designPrimaryPurpose;
+        rr:objectMap [
+        rml:reference "DesignPrimaryPurpose"
+        ]
+    ].
+
+<ClinicalTrial_ClinicalTrialIntervention>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/InterventionAnnotation/ClinicalTrialIntervention.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasIntervention;
+        rr:objectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{InterID}"
+        ]
+        ].
+
+<ClinicalTrial_ClinicalTrialConditions>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/ConditionAnnotation/ClinicalTrialConditions.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCondition;
+        rr:objectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{CondID}"
+        ]
+        ].
+
+
+<ClinicalTrial_ClinicalTrialKeywords>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/KeywordAnnotation/ClinicalTrialKeywords.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{NCTId}";
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasKeyword;
+        rr:objectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{KeyID}"
+        ]
+        ].
+
+<InterventionAnnotationBioFALCON_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/InterventionAnnotation/Intervention_Annotations_BioFALCON.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/Intervention-Annotation/{ID_Intervention}_{CUI}";
+        rr:class DE4LC:Intervention-Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCUIAnnotation;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{CUI}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annInterventionLabel;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Label}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:NLPtool;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/BioFALCON"
+        ]
+    ].
+
+<TKI_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/tki.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{tki}";
+        rr:class DE4LC:Tki,
+	         DE4LC:OncologicalTreatment,
+		 DE4LC:Treatment;
+    ].
+<TKI_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/tki.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{notki}"
+    ].
+
+<Keyword_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/keyword.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Keyword}";
+        rr:class DE4LC:Keyword
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasKeywordAnn;
+        rr:objectMap [
+        	rr:parentTriplesMap <KeywordAnnotationBioFALCON_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "ID_Keyword";
+            rr:parent "ID_Keyword";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasKeywordAnn;
+        rr:objectMap [
+        	rr:parentTriplesMap <KeywordAnnotationSciSpacy_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "ID_Keyword";
+            rr:parent "ID_Keyword";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rml:reference "Keyword"
+        ]
+    ].
+
+<KeywordAnnotationBioFALCON_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/KeywordAnnotation/Keyword_Annotations_BioFALCON.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Keyword}_{CUI}";
+        rr:class DE4LC:Keyword-Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCUIAnnotation;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{CUI}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annKeywordLabel;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Label}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:NLPtool;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/BioFALCON"
+        ]
+    ].
+
+<Surgery_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/surgery.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{surgery}";
+        rr:class DE4LC:Surgery,
+	         DE4LC:OncologicalTreatment,
+		 DE4LC:Treatment;
+    ].
+<Surgery_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/surgery.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{nosurgery}"
+    ].
+
+<EGFR_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/egfr.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{egfr}";
+        rr:class DE4LC:Egfr,
+		 DE4LC:Biomarker;
+    ].
+<EGFR_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/egfr.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{noegfr}"
+    ].
+<ALK_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/alk.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{alk}";
+        rr:class DE4LC:Alk,
+		 DE4LC:Biomarker;
+    ].
+
+<ALK_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/alk.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{noalk}"
+    ].
+
+<ROS_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/ros.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ros}";
+        rr:class DE4LC:Ros1,
+		 DE4LC:Biomarker;
+    ].
+<ROS_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/ros.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{noros}"
+    ].
+<PerformanceObservation_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/performanceStatus.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/status{value}";
+        rr:class DE4LC:PerformanceObservation
+    ].
+
+<Radiotherapy_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/radiotherapy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{radiotherapy}";
+        rr:class DE4LC:Radiotherapy,
+	         DE4LC:OncologicalTreatment,
+		 DE4LC:Treatment;
+    ].
+<Radiotherapy_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/radiotherapy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{noradiotherapy}"
+    ].
+
+<Intervention_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/intervention.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Intervention}";
+        rr:class DE4LC:Intervention
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasInterventionAnn;
+        rr:objectMap [
+        	rr:parentTriplesMap <InterventionAnnotationBioFALCON_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "ID_Intervention";
+            rr:parent "ID_Intervention";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasInterventionAnn;
+        rr:objectMap [
+        	rr:parentTriplesMap <InterventionAnnotationSciSpacy_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "ID_Intervention";
+            rr:parent "ID_Intervention";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rml:reference "InterventionName"
+        ]
+    ].
+
+<InterventionAnnotationSciSpacy_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/InterventionAnnotation/Intervention_Annotations_SciSpacy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Intervention}_{CUI}";
+        rr:class DE4LC:Intervention-Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCUIAnnotation;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{CUI}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Label}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annInterventionScore;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Score}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:NLPtool;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/SciSpacy"
+        ]
+    ].
+
+
+<ConditionAnnotationBioFALCON_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/ConditionAnnotation/Condition_Annotations_BioFALCON.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Condition}_{CUI}";
+        rr:class DE4LC:Condition-Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCUIAnnotation;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{CUI}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annConditionLabel;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Label}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:NLPtool;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/BioFALCON"
+        ]
+    ].
+
+<Condition_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/condition.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Condition}";
+        rr:class DE4LC:Condition
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasConditionAnn;
+        rr:objectMap [
+        	rr:parentTriplesMap <ConditionAnnotationBioFALCON_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "ID_Condition";
+            rr:parent "ID_Condition";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasConditionAnn;
+        rr:objectMap [
+        	rr:parentTriplesMap <ConditionAnnotationSciSpacy_ClinicalTrials>;
+        rr:joinCondition [
+            rr:child "ID_Condition";
+            rr:parent "ID_Condition";
+        ]
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rml:reference "Condition"
+        ]
+    ].
+
+<KeywordAnnotationSciSpacy_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/KeywordAnnotation/Keyword_Annotations_SciSpacy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Keyword}_{CUI}";
+        rr:class DE4LC:Keyword-Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCUIAnnotation;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{CUI}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annKeywordScore;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Score}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Label}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:NLPtool;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/SciSpacy"
+        ]
+    ].
+
+<Chemotherapy_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/chemotherapy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{chemotherapy}";
+        rr:class DE4LC:Chemotherapy,
+	         DE4LC:OncologicalTreatment,
+		 DE4LC:Treatment;
+    ].
+<Chemotherapy_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/chemotherapy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{nochemotherapy}"
+    ].
+
+<Antiangiogenic_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/antiangiogenic.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{antiangiogenic}";
+        rr:class DE4LC:Antiangiogenic,
+	         DE4LC:OncologicalTreatment,
+		 DE4LC:Treatment;
+    ].
+<Antiangiogenic_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/antiangiogenic.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{noantiangiogenic}"
+    ].
+
+<ConditionAnnotationSciSpacy_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/ConditionAnnotation/Condition_Annotations_SciSpacy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_Condition}_{CUI}";
+        rr:class DE4LC:Condition-Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasCUIAnnotation;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{CUI}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Label}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annConditionScore;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{Score}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:NLPtool;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/SciSpacy"
+        ]
+    ].
+
+<Stages_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/stages.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{value}";
+        rr:class DE4LC:Stage
+    ].
+
+<Immunotherapy_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/immunotherapy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{immunotherapy}";
+        rr:class DE4LC:Immunotherapy,
+	         DE4LC:OncologicalTreatment,
+		 DE4LC:Treatment;
+    ].
+<Immunotherapy_Negative_ClinicalTrials>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/clinical_trials/immunotherapy.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{noimmunotherapy}"
+    ].

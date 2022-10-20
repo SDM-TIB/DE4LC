@@ -1,0 +1,39 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+
+<Annotation_CUIs_oneLabel>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/drug/CUIs_oneLabel.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{Id}";
+        rr:class DE4LC:Annotation
+    ];
+    rr:predicateObjectMap [
+        rr:predicate prov:hasGeneratedBy;
+        rr:objectMap [
+        rr:constant "http://research.tib.eu/DE4LC/entity/UMLS"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annLabel;
+        rr:objectMap [
+        rml:reference "Label"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:annID;
+        rr:objectMap [
+        rml:reference "Id"
+        ]
+    ].
+

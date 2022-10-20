@@ -1,0 +1,39 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+
+
+<Molecular_Markers>
+    rml:logicalSource [ rml:source "/data/drug/Molecular_markers.csv";
+                        rml:referenceFormulation ql:CSV 
+                        ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{ID_marker}_Molecular_Markers";
+        rr:class DE4LC:Molecular_Markers;
+                   
+    ];
+    rr:predicateObjectMap [
+    rr:predicate DE4LC:hasCUIAnnotation;
+    rr:objectMap [
+      rr:template "http://research.tib.eu/DE4LC/entity/{marmolre_CUI}"
+    ]
+  ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasMolecularMarkers;
+        rr:objectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{marmolre}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasMolecularMarkersResult;
+        rr:objectMap [
+        rml:reference "result"
+        ]
+    ].
+

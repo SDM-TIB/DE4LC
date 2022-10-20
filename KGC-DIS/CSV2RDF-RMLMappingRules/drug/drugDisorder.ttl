@@ -1,0 +1,39 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+
+<DrugDisorderInteraction_drugDisorder>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/drug/drugs_indications.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{DrugId}_isPrescribedFor_{indication_name}";
+        rr:class DE4LC:DrugDisorderInteraction
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:interactor1_Drug;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{DrugId}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:interactor2Indication;
+        rr:objectMap [
+        rr:template  "http://research.tib.eu/DE4LC/entity/{indication_name}"
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate prov:hasGeneratedBy;
+        rr:objectMap [
+        rr:constant  "http://research.tib.eu/DE4LC/entity/DrugBank"
+        ]
+    ].
+

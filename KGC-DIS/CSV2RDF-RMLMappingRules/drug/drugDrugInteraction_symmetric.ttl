@@ -1,0 +1,85 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix schema: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+
+<SymmetricDDI_drugDrugInteraction_symmetric>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/drug/Symmetric_DDI_corpus.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{CUI_1}_hasPharmacodynamic_{CUI_2}";
+        rr:class DE4LC:PharmacodynamicDrugDrugInteraction,
+        DE4LC:DrugDrugInteraction;
+    ];
+    rr:predicateObjectMap [
+        rr:predicate rdfs:subClassOf;
+        rr:objectMap [
+        rr:parentTriplesMap <DrugDrugInteraction_drugDrugInteraction_symmetric>;
+        ]
+    ].
+
+<DrugDrugInteraction_drugDrugInteraction_symmetric>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/drug/Symmetric_DDI_corpus.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{CUI_1}_interactsWith_{CUI_2}";
+        rr:class DE4LC:DrugDrugInteraction
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:precipitantDrug;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/DE4LC/entity/{CUI_1}";
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:objectDrug;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/DE4LC/entity/{CUI_2}";
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:precipitant_hasDrugBankID;
+        rr:objectMap [ 
+            rr:template "http://research.tib.eu/DE4LC/entity/{PrecipitantDrugID}"; 
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:object_hasDrugBankID;
+        rr:objectMap [ 
+            rr:template "http://research.tib.eu/DE4LC/entity/{ObjectDrugID}"; 
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:interaction;
+        rr:objectMap [ 
+            rml:reference "Interaction";
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:effect;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/DE4LC/entity/{CUI_AdverseEvent}";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:impact;
+        rr:objectMap [
+            rml:reference "Impact";
+        ];
+    ];
+    rr:predicateObjectMap [
+        rr:predicate prov:hasGeneratedBy;
+        rr:objectMap [
+            rr:template "http://research.tib.eu/DE4LC/SourceName/UMLS";
+        ]
+    ].

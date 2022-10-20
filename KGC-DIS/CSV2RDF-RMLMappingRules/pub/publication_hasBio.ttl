@@ -1,0 +1,42 @@
+@prefix DE4LC: <http://research.tib.eu/DE4LC/vocab/> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<ALK_pub>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/pub/publication_ALK.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{pmid}";
+        rr:class    DE4LC:ALK,
+                    DE4LC:Biomarker;
+    ].
+
+
+<EGFR_pub>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/pub/publication_EGFR.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{pmid}";
+        rr:class DE4LC:EGFR,
+                    DE4LC:Biomarker;
+    ].
+
+
+<ROS1_pub>
+   a rr:TriplesMap;
+   rml:logicalSource [ rml:source "/data/pub/publication_ROS1.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+   rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{pmid}";
+        rr:class DE4LC:ROS1,
+                    DE4LC:Biomarker;
+    ].

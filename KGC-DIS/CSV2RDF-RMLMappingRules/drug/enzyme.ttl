@@ -95,13 +95,13 @@
     rr:predicateObjectMap [
         rr:predicate rdf:type;
         rr:objectMap [
-            rr:template "http://bigmedilytics.eu/vocab/Annotation";
+            rr:template "http://research.tib.eu/DE4LC/vocab/Annotation";
         ]
     ];
     rr:predicateObjectMap [
-        rr:predicate DE4LC:provenance;
+        rr:predicate prov:hasGeneratedBy;
         rr:objectMap [
-            rr:template "http://bigmedilytics.eu/SourceName/UMLS"
+            rr:template "http://research.tib.eu/DE4LC/entity/UMLS"
         ]
     ].
 
@@ -165,7 +165,7 @@
         rr:predicateObjectMap [
             rr:predicate biofunmap:value1;
             rr:objectMap [ 
-                rr:constant "http://bigmedilytics.eu/Annotation/" 
+                rr:constant "http://research.tib.eu/DE4LC/Annotation/" 
             ]
         ];
         rr:predicateObjectMap [

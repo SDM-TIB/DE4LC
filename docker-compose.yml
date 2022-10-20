@@ -1,10 +1,10 @@
 version: "3.3"
 services:
-  sdmrdfizer_p4lucat:
+  sdmrdfizer_DE4LC:
     image: sdmtib/sdmrdfizer:4.3.6
-    hostname: sdmrdfizer_p4lucat 
-    container_name: sdmrdfizer_p4lucat
-    domainname: p4lucat
+    hostname: sdmrdfizer_DE4LC 
+    container_name: sdmrdfizer_DE4LC
+    domainname: DE4LC
     volumes:
       - ./data:/data
       - ./rdf:/data/rdf-dump
@@ -13,94 +13,94 @@ services:
       - ./scripts:/data/scripts
       - ./KGC-DIS:/data/ttl
     networks:
-      - p4lucat
+      - DE4LC
     depends_on:
-      - p4lucatkg
+      - DE4LCkg
     environment:
-      - SPARQL_ENDPOINT_IP=p4lucatkg
+      - SPARQL_ENDPOINT_IP=DE4LCkg
       - SPARQL_ENDPOINT_USER=dba
       - SPARQL_ENDPOINT_PASSWD=dba
       - SPARQL_ENDPOINT_PORT=1111
-      - SPARQL_ENDPOINT_GRAPH=http://research.tib.eu/p4-lucat
+      - SPARQL_ENDPOINT_GRAPH=http://research.tib.eu/DE4LC
       - RDF_DUMP_FOLDER_PATH=/data/rdf-dump/
       - TTL_DUMP_FOLDER_PATH=/data/ttl/
-      - SPARQL_MAPPINGS_ENDPOINT_IP=p4lucat_mappings
+      - SPARQL_MAPPINGS_ENDPOINT_IP=DE4LC_mappings
       
 
-  p4lucatkg:
+  DE4LCkg:
     image: kemele/virtuoso:6-stable
-    hostname: p4lucatkg
-    container_name: p4lucatkg
-    domainname: p4lucat
+    hostname: DE4LCkg
+    container_name: DE4LCkg
+    domainname: DE4LC
     volumes:
       - ./rdf-dump:/data
       - ./rdf:/data/rdf-dump
       - ./KGC-DIS:/data/ttl
     ports:
-      - "8893:8890"
+      - "8481:8890"
     networks:
-      - p4lucat
+      - DE4LC
       
-  p4lucat_mappings:
+  DE4LC_mappings:
     image: kemele/virtuoso:6-stable
-    hostname: p4lucat_mappings
-    container_name: p4lucat_mappings
-    domainname: p4lucat
+    hostname: DE4LC_mappings
+    container_name: DE4LC_mappings
+    domainname: DE4LC
     volumes:
       - ./rdf-dump-mappings:/data
       - ./KGC-DIS:/data/ttl
     ports:
-      - "8894:8890"
+      - "8482:8890"
     networks:
-      - p4lucat
+      - DE4LC
  
-#    p4lucat_exp_api:
-#     image: sdmtib/p4lucat_exploration:2.0
-#     hostname: p4lucat_exploration_api
-#     container_name: p4lucat9_exploration_api
-#     domainname: p4lucat
+#    DE4LC_exp_api:
+#     image: sdmtib/DE4LC_exploration:2.0
+#     hostname: DE4LC_exploration_api
+#     container_name: DE4LC_exploration_api
+#     domainname: DE4LC
 #     ports:
 #       - "18873:5000"
 #     environment:
 #       - ENDPOINT=http://node2.research.tib.eu:8893/sparql
 #     networks:
-#       - p4lucat
+#       - DE4LC
       
-  p4lucat_dereferencing:
+  DE4LC_dereferencing:
     image: asanchez75/pubby:v0.3.3
     hostname: pubby
-    container_name: p4lucat_pubby
-    domainname: p4lucat
+    container_name: DE4LC_pubby
+    domainname: DE4LC
     ports:
-        - "8181:8080"
+        - "8480:8080"
     networks:
-      - p4lucat
+      - DE4LC
     environment:
-      SPARQL_ENDPOINT: "https://labs.tib.eu/sdm/p4lucat_kg/sparql"
-      PROJECT_HOMEPAGE_URL: "http://research.tib.eu/p4-lucat/"
-      PROJECT_NAME: "P4LUCAT"
-      DEFAULT_RESOURCE: "http://research.tib.eu/p4-lucat/entity/C0168273"
-      DEFAULT_NAMED_GRAPH: "http://research.tib.eu/p4-lucat"
-      COMMON_URI_PREFIX: "http://research.tib.eu/p4-lucat/"
+      SPARQL_ENDPOINT: "https://labs.tib.eu/sdm/DE4LC_kg/sparql"
+      PROJECT_HOMEPAGE_URL: "http://research.tib.eu/DE4LC/"
+      PROJECT_NAME: "DE4LC"
+      DEFAULT_RESOURCE: "http://research.tib.eu/DE4LC/entity/C0168273"
+      DEFAULT_NAMED_GRAPH: "http://research.tib.eu/DE4LC"
+      COMMON_URI_PREFIX: "http://research.tib.eu/DE4LC/"
       WEB_RESOURCE_PREFIX: ""
-      PUBBY_ROOT_URL: "https://research.tib.eu/p4-lucat/"
+      PUBBY_ROOT_URL: "https://research.tib.eu/DE4LC/"
     restart: always
     tty: true
     
           
-  p4lucat_detrusty:
+  DE4LC_detrusty:
     image: sdmtib/detrusty:0.7.2
     hostname: detrusty
-    container_name: p4lucat_detrusty
-    domainname: p4lucat
+    container_name: DE4LC_detrusty
+    domainname: DE4LC
     volumes:
       - ./DeTrusty/Config/:/DeTrusty/Config/
     ports:
-      - "5001:5000"
+      - "8483:5000"
     networks:
-      - p4lucat
+      - DE4LC
     depends_on:
-      - p4lucatkg
+      - DE4LCkg
 
 networks:
   p4lucat:

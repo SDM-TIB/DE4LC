@@ -245,7 +245,7 @@ xsd:date rdf:type rdfs:Datatype .
 ###  http://research.tib.eu/DE4LC/vocab/drugDrugInteraction
 <http://research.tib.eu/DE4LC/vocab/drugDrugInteraction> rdf:type owl:ObjectProperty ;
                                                rdfs:domain <http://research.tib.eu/DE4LC/vocab/Drug> ;
-                                               rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
+                                               rdfs:range <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
                                                <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/> ;
                                                <http://purl.org/dc/terms/modified> "2018-07-24"@en ;
                                                rdfs:comment "Represents drug-drug interactions."@en ;
@@ -268,9 +268,17 @@ xsd:date rdf:type rdfs:Datatype .
                                   rdfs:range <http://research.tib.eu/DE4LC/vocab/AdverseEvent> ;
                                   <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/> ;
                                   <http://purl.org/dc/terms/modified> "2020-09-14"@en ;
-                                  rdfs:comment "The relationship between the drug drug interaction and corresponding adverse event."@en ;
+                                  rdfs:comment "The relationship between the drug drug interaction and corresponding adverse event by CUI."@en ;
                                   rdfs:label "effect"@en .
 
+###  http://research.tib.eu/DE4LC/vocab/hasEffect
+<http://research.tib.eu/DE4LC/vocab/hasEffect> rdf:type owl:ObjectProperty ;
+                                  rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                  rdfs:range <http://research.tib.eu/DE4LC/vocab/AdverseEvent> ;
+                                  <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                  <http://purl.org/dc/terms/modified> "2022-10-14"@en ;
+                                  rdfs:comment "The relationship between the drug drug interaction and corresponding adverse event."@en ;
+                                  rdfs:label "hasEffect"@en .
 
 ###  http://research.tib.eu/DE4LC/vocab/enzyme_isRelatedTo_gene
 <http://research.tib.eu/DE4LC/vocab/enzyme_isRelatedTo_gene> rdf:type owl:ObjectProperty ;
@@ -1460,7 +1468,17 @@ xsd:date rdf:type rdfs:Datatype .
                                       rdfs:comment "The conncetion between drug that is affected by the other one through their interaction and the interaction node."@en ;
                                       rdfs:label "isAffected"@en .
 
+###  http://research.tib.eu/DE4LC/vocab/affects
+<http://research.tib.eu/DE4LC/vocab/affects> rdf:type owl:ObjectProperty ;
+                                      rdfs:domain <http://research.tib.eu/DE4LC/vocab/EffectInteraction> ;
+                                      rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
+                                      <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/samaneh-jozashoori/> ;
+                                      <http://purl.org/dc/terms/modified> "2018-11-27"@en ;
+                                      rdfs:comment "The conncetion between drug that affects on the other one through their interaction and the interaction node."@en ;
+                                      rdfs:label "affects"@en .
 
+
+hasEffect
 ###  http://research.tib.eu/DE4LC/vocab/isBetweenPatients
 <http://research.tib.eu/DE4LC/vocab/isBetweenPatients> rdf:type owl:ObjectProperty ;
                                              rdfs:domain <http://research.tib.eu/DE4LC/vocab/PatientSimilarity> ;
@@ -1529,8 +1547,19 @@ xsd:date rdf:type rdfs:Datatype .
                                        rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
                                        <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/disha-purohit/> ;
                                        <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
-                                       rdfs:comment "Relation which connects the drug drug interacion to the object drug."@en ;
+                                       rdfs:comment "Relation which connects the drug drug interacion to the object drug by CUI."@en ;
                                        rdfs:label "objectDrug"@en .
+
+
+###  http://research.tib.eu/DE4LC/vocab/object_hasDrugBankID
+<http://research.tib.eu/DE4LC/vocab/object_hasDrugBankID> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/disha-purohit/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
+                                       rdfs:comment "Relation which connects the drug drug interacion to the object drug by drug ID."@en ;
+                                       rdfs:label "object_hasDrugBankID"@en .
+
 
 ###  http://research.tib.eu/DE4LC/vocab/patientPosition
 <http://research.tib.eu/DE4LC/vocab/patientPosition> rdf:type owl:ObjectProperty ;
@@ -1563,8 +1592,18 @@ xsd:date rdf:type rdfs:Datatype .
                                             rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
                                             <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/disha-purohit/> ;
                                             <http://purl.org/dc/terms/modified> "2020-07-24"@en ;
-                                            rdfs:comment "Relation which connects the drug drug interacion to the precipitant drug."@en ;
+                                            rdfs:comment "Relation which connects the drug drug interacion to the precipitant drug by CUI."@en ;
                                             rdfs:label "precipitantDrug"@en .
+
+
+###  http://research.tib.eu/DE4LC/vocab/precipitant_hasDrugBankID
+<http://research.tib.eu/DE4LC/vocab/precipitant_hasDrugBankID> rdf:type owl:ObjectProperty ;
+                                            rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                            rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
+                                            <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/disha-purohit/> ;
+                                            <http://purl.org/dc/terms/modified> "2020-07-24"@en ;
+                                            rdfs:comment "Relation which connects the drug drug interacion to the precipitant drug by drug ID."@en ;
+                                            rdfs:label "precipitant_hasDrugBankID"@en .
 
 
 ###  http://research.tib.eu/DE4LC/vocab/publication_isRelatedTo_Disease
@@ -1695,9 +1734,69 @@ xsd:date rdf:type rdfs:Datatype .
                                      rdfs:label "tumorType"@en .
 
 
+
+###  http://research.tib.eu/DE4LC/vocab/hasResponse
+<http://research.tib.eu/DE4LC/vocab/hasResponse> rdf:type owl:ObjectProperty ;
+                                         rdfs:domain <http://research.tib.eu/DE4LC/vocab/Treatment> ;
+                                         rdfs:range <http://research.tib.eu/DE4LC/vocab/TreatmentResponse> ;
+                                         rdfs:comment "Treatment response"@en ;
+                                         rdfs:isDefinedBy "emetis_niazmand"@en ;
+                                         rdfs:label "hasResponse"@en .
+
+
+
+
+
+
+###  http://research.tib.eu/DE4LC/vocab/hasDDIs_Literature
+<http://research.tib.eu/DE4LC/vocab/hasDDIs_Literature> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       rdfs:range <http://research.tib.eu/DE4LC/vocab/DDI-Literature> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
+                                       rdfs:comment "Relation which shows the drug drug interacion in literature."@en ;
+                                       rdfs:label "hasDDIs_Literature"@en .
+
+
+###  http://research.tib.eu/DE4LC/vocab/hasDDIs_DeductiveSystem
+<http://research.tib.eu/DE4LC/vocab/hasDDIs_DeductiveSystem> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       rdfs:range <http://research.tib.eu/DE4LC/vocab/DDI-DeductiveSystem> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
+                                       rdfs:comment "Relation which shows the drug drug interacion in deductive system."@en ;
+                                       rdfs:label "hasDDIs_DeductiveSystem"@en .
+
+###  http://research.tib.eu/DE4LC/vocab/hasDDIs_DrugBank
+<http://research.tib.eu/DE4LC/vocab/hasDDIs_DrugBank> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       rdfs:range <http://research.tib.eu/DE4LC/vocab/DDI-DrugBank> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
+                                       rdfs:comment "Relation which shows the drug drug interacion in drug bank."@en ;
+                                       rdfs:label "hasDDIs_DrugBank"@en .
+
+###  http://research.tib.eu/DE4LC/vocab/hasTreatmentDrug
+<http://research.tib.eu/DE4LC/vocab/hasTreatmentDrug> rdf:type owl:ObjectProperty ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/Treatment> ;
+                                       rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
+                                       rdfs:comment "Relation between drug and treatment."@en ;
+                                       rdfs:label "hasTreatmentDrug"@en .                                                                             
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://research.tib.eu/DE4LC/vocab/hasNumberOfPatient
+<http://research.tib.eu/DE4LC/vocab/hasNumberOfPatient> rdf:type owl:DatatypeProperty ;
+                                                     rdfs:subPropertyOf owl:topDataProperty ;
+                                                     rdfs:domain <http://research.tib.eu/DE4LC/vocab/Treatment> ;
+                                                     rdfs:range rdfs:Literal ;
+                                                     rdfs:comment "Number of Patients"@en ;
+                                                     rdfs:isDefinedBy "emetis_niazmand"@en ;
+                                                     rdfs:label "hasNumberOfPatient"@en .
+
 
 ###  http://research.tib.eu/DE4LC/vocab/Mutated_Resist
 <http://research.tib.eu/DE4LC/vocab/Mutated_Resist> rdf:type owl:DatatypeProperty ;
@@ -6222,6 +6321,31 @@ xsd:date rdf:type rdfs:Datatype .
                                        <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
                                        <http://purl.org/dc/terms/modified> "2022-05-25"@en ;
                                        rdfs:label "DDI-NCRD"@en .
+
+
+<http://research.tib.eu/DE4LC/vocab/DDI-Literature> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-25"@en ;
+                                       rdfs:label "DDI-Literature"@en .
+
+
+<http://research.tib.eu/DE4LC/vocab/DDI-DeductiveSystem> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-25"@en ;
+                                       rdfs:label "DDI-DeductiveSystem"@en .
+
+
+<http://research.tib.eu/DE4LC/vocab/DDI-DrugBank> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-25"@en ;
+                                       rdfs:label "DDI-DrugBank"@en .
+
+
+
+
 ### Equivalent Classes
 DE4LC:Protein owl:equivalentClass up:Protein, dbr:Protein, wikidata:Q8054 .
 DE4LC:Treatment owl:equivalentClass wikidata:Q179661, dbo:treatment, dbr:Therapy .

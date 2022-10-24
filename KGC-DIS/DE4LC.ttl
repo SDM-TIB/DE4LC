@@ -6197,6 +6197,14 @@ hasEffect
                                      rdfs:label "Treatment" .
 
 
+###  http://research.tib.eu/DE4LC/vocab/ClinicalTreatment
+<http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://research.tib.eu/DE4LC/vocab/Treatment> ;
+                                         <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                         <http://purl.org/dc/terms/modified> "2022-10-07"@en ;
+                                         rdfs:comment "Represents any type of clinical treatment."@en ;
+                                         rdfs:label "ClinicalTreatment"@en .
+
 ###  http://research.tib.eu/DE4LC/vocab/TreatmentLine
 <http://research.tib.eu/DE4LC/vocab/TreatmentLine> rdf:type owl:Class ;
                                          rdfs:subClassOf <http://research.tib.eu/DE4LC/vocab/Concept> ;

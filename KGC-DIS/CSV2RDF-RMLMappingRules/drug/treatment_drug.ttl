@@ -30,6 +30,7 @@
         rr:predicate DE4LC:hasNumberOfPatient;
         rr:objectMap [
             rml:reference "n_pat";
+			rr:datatype xsd:int;
         ]
     ];
     rr:predicateObjectMap [

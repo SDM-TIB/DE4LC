@@ -114,7 +114,7 @@
                 ];
     rr:subjectMap [
         rr:template "http://research.tib.eu/DE4LC/entity/{precipitantDrug}_interactsWith_DeductiveSystem_{objectDrug}";
-        rr:class DE4LC:DE4LC:DrugDrugInteraction,
+        rr:class DE4LC:DrugDrugInteraction,
                 DE4LC:DDI-DeductiveSystem;    
     ];
     rr:predicateObjectMap [
@@ -151,7 +151,7 @@
                 ];
     rr:subjectMap [
         rr:template "http://research.tib.eu/DE4LC/entity/{precipitantDrug}_interactsWith_DrugBank_{objectDrug}";
-        rr:class DE4LC:DE4LC:DrugDrugInteraction,
+        rr:class DE4LC:DrugDrugInteraction,
                 DE4LC:DDI-DrugBank;     
     ];
     rr:predicateObjectMap [

@@ -1794,7 +1794,7 @@ hasEffect
 ###  http://research.tib.eu/DE4LC/vocab/hasNumberOfPatient
 <http://research.tib.eu/DE4LC/vocab/hasNumberOfPatient> rdf:type owl:DatatypeProperty ;
                                                      rdfs:subPropertyOf owl:topDataProperty ;
-                                                     rdfs:domain <http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> ;
+                                                     rdfs:domain <http://research.tib.eu/DE4LC/vocab/TreatmentResponse> ;
                                                      rdfs:range rdfs:Literal ;
                                                      rdfs:comment "Number of Patients"@en ;
                                                      rdfs:isDefinedBy "emetis_niazmand"@en ;

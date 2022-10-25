@@ -500,7 +500,7 @@ xsd:date rdf:type rdfs:Datatype .
 <http://research.tib.eu/DE4LC/vocab/hasCUIAnnotationTreatmentResponse> rdf:type owl:ObjectProperty ;
                                                              rdfs:subPropertyOf owl:topObjectProperty ;
                                                              rdfs:domain <http://research.tib.eu/DE4LC/vocab/Patient> ;
-                                                             rdfs:range <http://research.tib.eu/DE4LC/vocab/Treatment_Response> ;
+                                                             rdfs:range <http://research.tib.eu/DE4LC/vocab/TreatmentResponse> ;
                                                              rdfs:comment "CUI associated with the patient treatment response"@en ;
                                                              rdfs:isDefinedBy "disha_purohit"@en ;
                                                              rdfs:label "hasCUIAnnotationTreatmentResponse"@en .
@@ -1737,7 +1737,7 @@ hasEffect
 
 ###  http://research.tib.eu/DE4LC/vocab/hasResponse
 <http://research.tib.eu/DE4LC/vocab/hasResponse> rdf:type owl:ObjectProperty ;
-                                         rdfs:domain <http://research.tib.eu/DE4LC/vocab/Treatment> ;
+                                         rdfs:domain <http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> ;
                                          rdfs:range <http://research.tib.eu/DE4LC/vocab/TreatmentResponse> ;
                                          rdfs:comment "Treatment response"@en ;
                                          rdfs:isDefinedBy "emetis_niazmand"@en ;
@@ -1750,7 +1750,8 @@ hasEffect
 
 ###  http://research.tib.eu/DE4LC/vocab/hasDDIs_Literature
 <http://research.tib.eu/DE4LC/vocab/hasDDIs_Literature> rdf:type owl:ObjectProperty ;
-                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ,
+                                                    <http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> ;
                                        rdfs:range <http://research.tib.eu/DE4LC/vocab/DDI-Literature> ;
                                        <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
                                        <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
@@ -1760,7 +1761,8 @@ hasEffect
 
 ###  http://research.tib.eu/DE4LC/vocab/hasDDIs_DeductiveSystem
 <http://research.tib.eu/DE4LC/vocab/hasDDIs_DeductiveSystem> rdf:type owl:ObjectProperty ;
-                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ,
+                                                    <http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> ;
                                        rdfs:range <http://research.tib.eu/DE4LC/vocab/DDI-DeductiveSystem> ;
                                        <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
                                        <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
@@ -1769,7 +1771,8 @@ hasEffect
 
 ###  http://research.tib.eu/DE4LC/vocab/hasDDIs_DrugBank
 <http://research.tib.eu/DE4LC/vocab/hasDDIs_DrugBank> rdf:type owl:ObjectProperty ;
-                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/DrugDrugInteraction> ,
+                                                    <http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> ;
                                        rdfs:range <http://research.tib.eu/DE4LC/vocab/DDI-DrugBank> ;
                                        <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
                                        <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
@@ -1778,7 +1781,7 @@ hasEffect
 
 ###  http://research.tib.eu/DE4LC/vocab/hasTreatmentDrug
 <http://research.tib.eu/DE4LC/vocab/hasTreatmentDrug> rdf:type owl:ObjectProperty ;
-                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/Treatment> ;
+                                       rdfs:domain <http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> ;
                                        rdfs:range <http://research.tib.eu/DE4LC/vocab/Drug> ;
                                        <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
                                        <http://purl.org/dc/terms/modified> "2022-10-13"@en ;
@@ -1791,7 +1794,7 @@ hasEffect
 ###  http://research.tib.eu/DE4LC/vocab/hasNumberOfPatient
 <http://research.tib.eu/DE4LC/vocab/hasNumberOfPatient> rdf:type owl:DatatypeProperty ;
                                                      rdfs:subPropertyOf owl:topDataProperty ;
-                                                     rdfs:domain <http://research.tib.eu/DE4LC/vocab/Treatment> ;
+                                                     rdfs:domain <http://research.tib.eu/DE4LC/vocab/ClinicalTreatment> ;
                                                      rdfs:range rdfs:Literal ;
                                                      rdfs:comment "Number of Patients"@en ;
                                                      rdfs:isDefinedBy "emetis_niazmand"@en ;
@@ -6215,13 +6218,6 @@ hasEffect
 
 
 
-###  http://research.tib.eu/DE4LC/vocab/Treatment_Response
-<http://research.tib.eu/DE4LC/vocab/Treatment_Response> rdf:type owl:Class ;
-                                              rdfs:subClassOf <http://research.tib.eu/DE4LC/vocab/Concept> ;
-                                              rdfs:label "Treatment_Response" .
-
-
-
 
 ###  http://research.tib.eu/DE4LC/vocab/TumorObservation
 <http://research.tib.eu/DE4LC/vocab/TumorObservation> rdf:type owl:Class ;
@@ -6352,6 +6348,11 @@ hasEffect
                                        rdfs:label "DDI-DrugBank"@en .
 
 
+<http://research.tib.eu/DE4LC/vocab/TreatmentResponse> rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://research.tib.eu/DE4LC/vocab/Concept> ;
+                                       <http://purl.org/dc/terms/creator> <https://www.tib.eu/en/research-development/scientific-data-management/staff/emetis-niazmand/> ;
+                                       <http://purl.org/dc/terms/modified> "2022-10-25"@en ;
+                                       rdfs:label "TreatmentResponse"@en .
 
 
 ### Equivalent Classes

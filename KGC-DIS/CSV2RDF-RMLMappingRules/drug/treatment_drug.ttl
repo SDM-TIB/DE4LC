@@ -21,12 +21,6 @@
         rr:class DE4LC:ClinicalTreatment   
     ];
     rr:predicateObjectMap [
-        rr:predicate DE4LC:hasResponse;
-        rr:objectMap [
-        rr:parentTriplesMap <Treatment_Response>;
-        ]
-    ];
-    rr:predicateObjectMap [
         rr:predicate DE4LC:hasDDIs_Literature;
         rr:objectMap [
         rr:parentTriplesMap <Treatment_DDI_Literature>;
@@ -65,8 +59,20 @@
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://research.tib.eu/DE4LC/entity/{description}";
+        rr:template "http://research.tib.eu/DE4LC/entity/{Treatment}_Treatment_{description}";
         rr:class DE4LC:TreatmentResponse 
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasTreatment;
+        rr:objectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{Treatment}_Treatment";
+        ]
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasResponse;
+        rr:objectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{description}";
+        ]
     ];
     rr:predicateObjectMap [
         rr:predicate DE4LC:hasNumberOfPatient;

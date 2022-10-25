@@ -11,30 +11,6 @@
 
 
 
-
-<Treatment_Response>
-    a rr:TriplesMap;
-    rml:logicalSource [ rml:source "/data/drug/treatment_response.csv";
-                rml:referenceFormulation ql:CSV
-                ];
-    rr:subjectMap [
-        rr:template "http://research.tib.eu/DE4LC/entity/{Treatment}_Treatment";
-        rr:class DE4LC:ClinicalTreatment 
-    ];
-    rr:predicateObjectMap [
-        rr:predicate DE4LC:hasResponse;
-        rr:objectMap [
-            rr:template "http://research.tib.eu/DE4LC/entity/{description}";
-        ]
-    ];
-    rr:predicateObjectMap [
-        rr:predicate DE4LC:hasNumberOfPatient;
-        rr:objectMap [
-            rml:reference "n_pat";
-            rr:datatype xsd:int;
-        ]
-    ].
-
 <Treatment_DDIs>
     a rr:TriplesMap;
     rml:logicalSource [ rml:source "/data/drug/treatment_response.csv";
@@ -43,6 +19,12 @@
     rr:subjectMap [
         rr:template "http://research.tib.eu/DE4LC/entity/{Treatment}_Treatment";
         rr:class DE4LC:ClinicalTreatment   
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasResponse;
+        rr:objectMap [
+        rr:parentTriplesMap <Treatment_Response>;
+        ]
     ];
     rr:predicateObjectMap [
         rr:predicate DE4LC:hasDDIs_Literature;
@@ -75,6 +57,24 @@
         ]
     ].
 
+
+
+<Treatment_Response>
+    a rr:TriplesMap;
+    rml:logicalSource [ rml:source "/data/drug/treatment_response.csv";
+                rml:referenceFormulation ql:CSV
+                ];
+    rr:subjectMap [
+        rr:template "http://research.tib.eu/DE4LC/entity/{description}";
+        rr:class DE4LC:ClinicalTreatment 
+    ];
+    rr:predicateObjectMap [
+        rr:predicate DE4LC:hasNumberOfPatient;
+        rr:objectMap [
+            rml:reference "n_pat";
+            rr:datatype xsd:int;
+        ]
+    ].
 
 <Treatment_Drug>
     a rr:TriplesMap;

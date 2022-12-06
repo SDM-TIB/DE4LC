@@ -130,7 +130,7 @@
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://research.tib.eu/DE4LC/entity/{precipitantDrug}_interactsWith_DeductiveSystem_{objectDrug}";
+        rr:template "http://research.tib.eu/DE4LC/entity/{precipitantDrug}_interactsWith_DeductiveSystem_{objectDrug}_{Effect}";
         rr:class DE4LC:DrugDrugInteraction,
                 DE4LC:DDI-DeductiveSystem;    
     ];
@@ -167,7 +167,7 @@
                 rml:referenceFormulation ql:CSV
                 ];
     rr:subjectMap [
-        rr:template "http://research.tib.eu/DE4LC/entity/{precipitantDrug}_interactsWith_DrugBank_{objectDrug}";
+        rr:template "http://research.tib.eu/DE4LC/entity/{precipitantDrug}_interactsWith_DrugBank_{objectDrug}_{Effect}";
         rr:class DE4LC:DrugDrugInteraction,
                 DE4LC:DDI-DrugBank;     
     ];

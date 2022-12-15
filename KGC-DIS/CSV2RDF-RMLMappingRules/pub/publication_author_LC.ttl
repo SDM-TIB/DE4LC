@@ -22,7 +22,7 @@
     rr:predicateObjectMap [
         rr:predicate dct:creator;
         rr:objectMap [
-        rml:reference  "http://research.tib.eu/DE4LC/entity/{author}"
+        rr:template  "http://research.tib.eu/DE4LC/entity/{author}"
         ]
     ].
 

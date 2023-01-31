@@ -10,8 +10,11 @@ SDM-RDFizer [2], an in-house RML-compliant engine, is utilized to integrate data
 
 ![KG Classes](https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Classes.png "KG Classes") ![Entities per Class](https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/EntitiesPerClasses.png "Entities per Class")
 
-<img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Classes.png" width="48">
 
+<p float="left">
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Classes.png" width="100" />
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/EntitiesPerClasses.png" width="100" /> 
+</p>
 
 ## Data Quality and Ethics in the DE4LungCancer Data Ecosystem
 

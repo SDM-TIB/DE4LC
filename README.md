@@ -24,6 +24,7 @@ Finally, the evaluators were asked to rate their overall experience with the das
 ![A general rating from the end-users, evaluating their overall experience with the dashboard](https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Platform_evaluation.png "A general rating from the end-users, evaluating their overall experience with the dashboard.")
 
 **References**
+
 [1] S. Geisler, M. Vidal, C. Cappiello, B. F. Lóscio, A. Gal, M. Jarke, M. Lenzerini, P. Missier, B. Otto, E. Paja, B. Pernici, and J. Rehof. Knowledge-driven data ecosystems toward data transparency. ACM J. Data Inf. Qual., 14(1):3:1–3:12, 2022.
 [2] A. Krithara, F. Aisopos, V. Rentoumi, A. Nentidis, K. Bougatiotis, M.-E. Vidal, E. Menasalvas, A. Rodriguez-Gonzalez, E. Samaras, P. Garrard, et al. iasis: Towards heterogeneous big data analysis for personalized medicine. In 2019 IEEE 32nd International Symposium on Computer-Based Medical Systems (CBMS), pages 106–111. IEEE, 2019.
 

@@ -26,11 +26,11 @@ The DDIs in a treatment are computed based on three computational methods. The f
 
 
 <p float="center">
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Carboplatin-Omeprazole-Pemetrexed.png" width="300" />
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Cisplatin-Omeprazole-Vinorelbine.png" width="300" /> 
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Ipilimumab-Nivolumab-Omeprazole.png" width="300" /> 
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Carboplatin-Pemetrexed.png" width="300" /> 
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Cisplatin-Vinorelbine.png" width="300" /> 
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Carboplatin-Omeprazole-Pemetrexed.png" width="250" />
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Cisplatin-Omeprazole-Vinorelbine.png" width="250" /> 
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Ipilimumab-Nivolumab-Omeprazole.png" width="250" /> 
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Carboplatin-Pemetrexed.png" width="250" /> 
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Cisplatin-Vinorelbine.png" width="250" /> 
 </p>
 
 

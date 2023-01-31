@@ -6,7 +6,7 @@ The DE4LungCancer framework is devised as a network of data ecosystems (DEs)[1];
 ![The DE4LungCancer Data Ecosystem](https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/DE4LungCancer.png "The DE4LungCancer Data Ecosystem")
 
 
-SDM-RDFizer [2], an in-house RML-compliant engine, is utilized to integrate data from the data sources into the KG following the mapping rules. As a result, a KG of 19,602,972 biomedical entities described in terms of 110,788,660 RDF triples is created. Moreover, 3,900,764 links to DBpedia, Wikidata, and UMLS are part of the KG; they are discovered by the tasks of NER and NEL executed by the FnO function included in the mapping rules and by the NLP processes implemented in each DE. The classes -DE4LC:MENTION_IN-, and -DE4LC:HAS_TOPIC- are populated with entities extracted from scientific publications, while -DE4LC:Annotation- comprises the UMLS terms that annotate the entities recognized by the NER implemented on top of the DE4LungCancer datasets.
+SDM-RDFizer [2], an in-house RML-compliant engine, is utilized to integrate data from the data sources into the KG following the mapping rules. As a result, a KG of 19,602,972 biomedical entities described in terms of 110,788,660 RDF triples is created. Moreover, 3,900,764 links to DBpedia, Wikidata, and UMLS are part of the KG; they are discovered by the tasks of NER and NEL executed by the FnO function included in the mapping rules and by the NLP processes implemented in each DE. The classes _DE4LC:MENTION_IN_, and _DE4LC:HAS_TOPIC_ are populated with entities extracted from scientific publications, while _DE4LC:Annotation_ comprises the UMLS terms that annotate the entities recognized by the NER implemented on top of the DE4LungCancer datasets.
 
 
 

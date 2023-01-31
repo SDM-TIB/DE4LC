@@ -36,11 +36,11 @@ The DDIs in a treatment are computed based on three computational methods. The f
 
 We have extracted from DE4LungCancer KG the lung cancer treatments with their respective responses. Our purpose is to compute the distribution of DDIs for each treatment response. The hypothesis is that treatments with a _complete therapeutic response_ or _stable disease_ have fewer DDIs than treatments with _partial therapeutic response_ and _disease progression_. To have the treatments in four disjoint sets of treatment responses, the data were processed. For treatments with different responses, the most frequent response is selected. Thus, each treatment is classified into a single response class. The DDIs for each treatment are computed based on the DDIs reported on DrugBank, and two computational methods.
 
-<p float="left">
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Complete therapeutic response.png" width="200" />
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Stable Disease.png" width="200" /> 
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Partial therapeutic response.png" width="200" /> 
-  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Disease Progression.png" width="200" /> 
+<p float="center">
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Complete therapeutic response.png" width="250" />
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Stable Disease.png" width="250" /> 
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Partial therapeutic response.png" width="250" /> 
+  <img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Distribution_DDI_Disease Progression.png" width="250" /> 
 </p>
 
 

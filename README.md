@@ -1,4 +1,4 @@
-# DE4LungCancer
+## DE4LungCancer
 
 The DE4LungCancer framework is devised as a network of data ecosystems (DEs)[1]; it aligns data and metadata to describe the network and its components. Heterogeneity issues across the different datasets are overcome by various data curation and integration methods. Each DE comprises datasets and programs for accessing, managing, and analyzing their data. Interoperability issues across the datasets of the DEs are solved in a unified schema. Mapping rules between the datasets and the unified schema describe the meaning of the datasets. The metadata layer specifies biomedical vocabularies (e.g., [Unified Medical Language System-UMLS](https://www.nlm.nih.gov/research/umls/index.html) or [Human Phenotype Ontology-HPO](https://hpo.jax.org/app/)). 
  The DE4LungCancer DE is a nested framework that is also composed of three basic DEs: Clinical, Scholarly, and Scientific Open. These basic DEs are described in terms of datasets, metadata, and methods; they enable each basic DE to conduct individual analyses based on locally collected data. On the other hand, the nested DE4LungCancer DE comprises the basic DEs and integrates the data processed by each. As a result, the nested DE4LungCancer DE provides a holistic profile of a lung cancer patient composed of the data process by Clinical, Scholarly, and Scientific Open DEs; these profiles are represented in the DE4LungCancer knowledge graph (KG).
@@ -10,6 +10,7 @@ SDM-RDFizer [2], an in-house RML-compliant engine, is utilized to integrate data
 
 ![KG Classes](https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Classes.png "KG Classes") ![Entities per Class](https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/EntitiesPerClasses.png "Entities per Class")
 
+<img src="https://raw.githubusercontent.com/SDM-TIB/DE4LC/main/images/Classes.png" width="48">
 
 
 ## Data Quality and Ethics in the DE4LungCancer Data Ecosystem
